@@ -46,18 +46,14 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/produits").permitAll()
-                        .requestMatchers("/api/produits/**").permitAll()
+                        .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/swagger-ui/**").permitAll()
                         .requestMatchers("/v3/**").permitAll()
-
-                        //.requestMatchers("/api/produits").hasAnyRole("CLIENT", "MANAGER")
-                        //.requestMatchers("/api/produits/**").hasRole("MANAGER")
+                        .requestMatchers("/api/produits").hasAnyRole("CLIENT", "MANAGER")
+                        .requestMatchers("/api/produits/**").hasRole("MANAGER")
                         .anyRequest().authenticated()
                 )
-                .httpBasic
-                        (httpBasic -> {
-
+                .httpBasic(httpBasic -> {
                 });
 
         return http.build();
