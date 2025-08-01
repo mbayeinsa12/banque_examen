@@ -1,0 +1,12 @@
+com\boutique\security\CustomUserDetailsService.class
+com\boutique\service\ProduitService.class
+com\boutique\entity\Utilisateur.class
+com\boutique\repository\UtilisateurRepository.class
+com\boutique\service\InitUserDataService.class
+com\boutique\controller\ProduitController.class
+com\boutique\entity\Produit.class
+com\boutique\repository\RoleRepository.class
+com\boutique\BoutiqueeApplication.class
+com\boutique\repository\ProduitRepository.class
+com\boutique\entity\Role.class
+com\boutique\config\SecurityConfig.class
