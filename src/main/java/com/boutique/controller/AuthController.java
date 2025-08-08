@@ -3,7 +3,7 @@ package com.boutique.controller;
 
 import com.boutique.dto.AuthRequest;
 import com.boutique.dto.AuthResponse;
-import com.boutique.entity.User;
+import com.boutique.entity.Register;
 import com.boutique.repository.UserRepository;
 import com.boutique.security.CustomUserDetailsService;
 import com.boutique.security.JwtService;
@@ -35,7 +35,7 @@ public class AuthController {
                 return ResponseEntity.badRequest().body("Error: Username is already taken(vous pouvez prendre un autre)!");
             }
 
-            User user = new User();
+            Register user = new Register();
             user.setUsername(request.getUsername());
             user.setPassword(passwordEncoder.encode(request.getPassword()));
             user.setRole("CLIENT"); // Par défaut, on crée un CLIENT
