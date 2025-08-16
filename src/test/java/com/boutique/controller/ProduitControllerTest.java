@@ -31,7 +31,13 @@ public class ProduitControllerTest {
     @Test
     @WithMockUser(username = "client1", roles = {"CLIENT"})
     void testCreateAndGetProduit() throws Exception {
-        String produitJson = "{\"nom\":\"Test\",\"description\":\"Desc\",\"prixUnitaire\":10.5}";
+        String produitJson = "{\"nom\":" +
+                "\"Test\"," +
+                "\"description\":" +
+                "\"Desc\"," +
+                "\"prixUnitaire\"" +
+                ":10.5" +
+                "}";
         // Création
         mockMvc.perform(post("/api/produits")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -52,7 +58,13 @@ public class ProduitControllerTest {
         produit.setDescription("Desc");
         produit.setPrixUnitaire(5.0);
         produit = produitRepository.save(produit);
-        String updateJson = "{\"nom\":\"Nouveau\",\"description\":\"Desc\",\"prixUnitaire\":15.0}";
+        String updateJson = "{\"nom\":" +
+                "\"Nouveau\"," +
+                "\"description\":" +
+                "\"Desc\"," +
+                "\"prixUnitaire\":" +
+                "15.0" +
+                "}";
         mockMvc.perform(put("/api/produits/" + produit.getId())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(updateJson))
